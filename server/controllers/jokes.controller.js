@@ -12,11 +12,11 @@ module.exports.findAllJokes = (req, res) => {
       .catch(err => res.json({ message: "Something went wrong", error: err }));
   };
 
-//   module.exports.findOneSingleUser = (req, res) => {
-//       User.findOne({ _id: req.params.id })
-//           .then(oneSingleUser => res.json({ user: oneSingleUser }))
-//           .catch(err => res.json({ message: "Something went wrong", error: err }));
-//   };
+  module.exports.findOneSingleJoke = (req, res) => {
+      Joke.findOne({ _id: req.params.id })
+          .then(oneSingleJoke => res.json({ joke: oneSingleJoke }))
+          .catch(err => res.json({ message: "Something went wrong", error: err }));
+  };
 
   module.exports.createNewJoke = (req, res) => {
     Joke.create(req.body)
