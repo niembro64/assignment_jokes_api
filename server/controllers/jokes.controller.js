@@ -13,7 +13,7 @@ module.exports.findAllJokes = (req, res) => {
   };
 
   module.exports.findOneSingleJoke = (req, res) => {
-      Joke.findOne({ _id: req.params.id })
+      Joke.findOne({ _id: req.params._id })
           .then(oneSingleJoke => res.json({ joke: oneSingleJoke }))
           .catch(err => res.json({ message: "Something went wrong", error: err }));
   };
@@ -24,14 +24,15 @@ module.exports.findAllJokes = (req, res) => {
       .catch(err => res.json({ message: "Something went wrong", error: err }));
   };
 
+    module.exports.deleteAnExistingJoke = (req, res) => {
+      Joke.deleteOne({ _id: req.params._id })
+        .then(result => res.json({ result: result }))
+        .catch(err => res.json({ message: "Something went wrong", error: err }));
+    };
+
 //   module.exports.updateExistingUser = (req, res) => {
 //     User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
 //       .then(updatedUser => res.json({ user: updatedUser }))
 //       .catch(err => res.json({ message: "Something went wrong", error: err }));
 //   };
 
-//   module.exports.deleteAnExistingUser = (req, res) => {
-//     User.deleteOne({ _id: req.params.id })
-//       .then(result => res.json({ result: result }))
-//       .catch(err => res.json({ message: "Something went wrong", error: err }));
-//   };
