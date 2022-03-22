@@ -6,11 +6,11 @@ module.exports.test = (req, res) => {
     .catch((err) => res.json({ message: "Something went wrong", error: err }));
 };
 
-// module.exports.findAllUsers = (req, res) => {
-//     User.find()
-//       .then(allDaUsers => res.json({ users: allDaUsers }))
-//       .catch(err => res.json({ message: "Something went wrong", error: err }));
-//   };
+module.exports.findAllJokes = (req, res) => {
+    Joke.find()
+      .then(allJokes => res.json({ joke: allJokes }))
+      .catch(err => res.json({ message: "Something went wrong", error: err }));
+  };
 
 //   module.exports.findOneSingleUser = (req, res) => {
 //       User.findOne({ _id: req.params.id })
