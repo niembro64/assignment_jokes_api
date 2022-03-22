@@ -8,3 +8,4 @@ module.exports = (app) => {
   app.delete("/api/jokes/delete/:_id", JokesController.deleteAnExistingJoke);
   app.patch("/api/jokes/update/:_id", JokesController.updateExistingJoke);
 };
+
